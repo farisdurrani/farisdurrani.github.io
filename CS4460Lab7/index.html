@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Lab 7 - Aircraft Incidents</title>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+            integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css"
+        />
+        <style>
+            .world_map {
+                stroke: white;
+                stroke-width: 0.25px;
+                fill: #e1c699;
+            }
+            .country_hover {
+                fill: blue;
+            }
+            .city_data {
+                font-family: "Lato", "Arial", "Sans Serif";
+                font-size: 10px;
+                font-weight: bold;
+                opacity: 0;
+            }
+            .city_data:hover {
+                opacity: 100%;
+            }
+            .city_circle {
+                fill-opacity: 50%;
+            }
+            .city_circle:hover {
+                fill-opacity: 100%;
+            }
+            .scatterplot_circle {
+                fill-opacity: 50%;
+            }
+            .scatterplot_circle:hover {
+                fill-opacity: 100%;
+            }
+            .rectData {
+                fill-opacity: 0%;
+            }
+            .rectData:hover {
+                fill-opacity: 100%;
+            }
+            .scatterTitle {
+                font-size: 20px;
+            }
+            .legendCircles {
+                fill-opacity: 50%;
+            }
+            .legendCircles:hover {
+                fill-opacity: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <br />
+            <div id="selectors">
+                <b>Weather:</b>
+                <select id="weatherSelector" onchange="onWeatherChanged()">
+                    <option value="all">All</option>
+                    <option value="VMC">Good and Visible (VMC)</option>
+                    <option value="IMC">Poor Visibility (IMC)</option>
+                    <option value="unk/na">Unknown / Not Available</option>
+                </select>
+                <b>Broad Phase of Flight:</b>
+                <select id="phaseSelector" onchange="onPhaseChanged()">
+                    <option value="all">All</option>
+                    <option value="APPROACH">Approach</option>
+                    <option value="CLIMB">Climb</option>
+                    <option value="CRUISE">Cruise</option>
+                    <option value="DESCENT">Descent</option>
+                    <option value="GO-AROUND">Go-Around</option>
+                    <option value="LANDING">Landing</option>
+                    <option value="MANEUVERING">Maneuvering</option>
+                    <option value="OTHER">Other</option>
+                    <option value="STANDING">Standing</option>
+                    <option value="TAKEOFF">Takeoff</option>
+                    <option value="TAXI">Standing</option>
+                    <option value="unk/na">Unknown / Not Available</option>
+                </select>
+            </div>
+
+            <h1>Aircraft Incidents <i>(1995 – 2016)</i></h1>
+            <p>
+                From the
+                <a href="https://www.ntsb.gov/_layouts/ntsb.aviation/index.aspx"
+                    >National Transportation Safety Board</a
+                >
+                | Data column info at
+                <a
+                    href="https://www.ntsb.gov/_layouts/ntsb.aviation/AviationDownloadDataDictionary.aspx"
+                    >NTSB Data Dictionary Page</a
+                >
+            </p>
+            <svg
+                class="map"
+                width="793"
+                height="500"
+                style="border: 1px solid #777"
+            ></svg>
+            <svg
+                class="bar"
+                width="300"
+                height="500"
+                style="border: 1px solid #777"
+            ></svg>
+            <svg
+                class="scatterplot"
+                width="400"
+                height="500"
+                style="border: 1px solid #777"
+            ></svg>
+        </div>
+        <!-- Range Slider -->
+        <div class="jumbotron text-center">
+            <label>Range Slider</label>
+            <input id="range" type="text" />
+        </div>
+
+        <p><i><strong>*Human Life Cost Calculation:</strong> Fatal casualties × 3 + Serious casualties × 2 + Uninjured casaulties × 1.<i></p>
+
+        <div class="additional">
+            <!-- this class is not a part of the original submitted Lab 7 -->
+            <p><a href="">Source Code</a></p>
+        </div>
+
+        <!-- Bootstrap code -->
+        <!-- Source: https://steemit.com/utopian-io/@riyo.s94/how-to-use-bootstrap-slider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://unpkg.com/topojson@3"></script>
+
+        <script src="main.js"></script>
+    </body>
+</html>
