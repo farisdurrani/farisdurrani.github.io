@@ -1,5 +1,7 @@
 ﻿<?php
 
+echo("bob");
+
 // Replace this with your own email address
 $siteOwnersEmail = 'afarisdurrani@gmail.com';
 
