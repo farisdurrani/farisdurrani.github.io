@@ -1,3 +1,18 @@
+# farisdurrani.github.io
+
+The personal website of Faris Durrani.
+
+> **GitHub Source:** https://github.com/farisdurrani/farisdurrani.github.io <br/>
+**Implemented:** May 2021 — present <br/>
+**Author:** [Faris Durrani](https://github.com/farisdurrani)
+
+## How to Run
+Open `index.html` on your web browser.
+
+Alternatively, go to https://farisdurrani.github.io/.
+
+## License and Attribution
+
 ==================================================================================================
 
 DESCRIPTION:
